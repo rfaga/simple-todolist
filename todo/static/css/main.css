@@ -1,0 +1,30 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+tr.modal-loader{
+	cursor: pointer;
+}
+tr.modal-loader:hover{
+	background-color: #333;
+	color: white;
+}
+td.priority-1{
+	background-color: red;
+	color: white;
+	font-weight: bolder;
+}
+td.priority-2{
+	background-color: #FFAAAA;
+	font-weight: bold;
+}
+td.priority-4{
+	background-color: #DDD;
+}
+td.priority-5{
+	background-color: #AAA;
+	color: gray;
+}

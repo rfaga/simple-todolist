@@ -1,0 +1,8 @@
+{% for todo in tasks %}
+<tr class="modal-loader" data-url="{% url 'todo_edit' task=todo.pk %}">
+	<td class="priority-{{todo.priority}}">{{todo.get_priority_display}}</td>
+	<td>{{todo.title}} <br/> <span class="badge">{{todo.description}}</span></td>
+	<td>{{todo.date|default:''}}</td>
+	
+</tr>
+{% endfor %}

@@ -1,0 +1,25 @@
+{% load bootstrap_tags %}
+
+{% if form.errors %}
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Error found.</strong> Check the red fields.
+</div>
+{% endif %}
+
+<form action="{{form.action}}" method="post" class="form-horizontal" {% if form.upload %}enctype="multipart/form-data"{%endif%}>
+	{% csrf_token %}
+	<div class="span8 offset1">
+	{{ form|as_bootstrap }}
+	</div>
+	
+    <div class="form-actions span8 offset1">
+    	<div class="span3">
+        </div><div class="span3 offset1">
+        	<button type="submit" name="action" value="{{ form.submit_action}}" class="btn btn-primary">{{ form.submit_label|safe|default:"Submit"}}</button>
+        {% if delete_url %}
+			<a href="{{ delete_url }}" class="btn">Remove</a>
+        {% endif %}
+    	</div>
+    </div>
+</form>

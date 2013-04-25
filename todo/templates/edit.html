@@ -1,0 +1,28 @@
+{% load bootstrap_tags %}
+<div class="modal-header">
+	<a href="#" class="btn close" data-dismiss="modal">&times;</a>
+	<h3>{% if form.instance.pk %}Edit{%else%}New{%endif%} Task </h3>
+</div>
+<div class="modal-body controller" >
+	
+	<form method="post" class="form-horizontal task-form">
+    	{{ form|as_bootstrap}}
+	</form>
+
+</div>
+<div class="modal-footer">
+
+	
+	{% if form.instance.pk %}
+	<button type="submit" class="btn btn-primary modal-submit" data-url="{% url 'todo_edit' task=form.instance.pk %}">
+		<i class="icon-ok icon-white"></i> Edit
+	</button>
+	<button type="submit" class="btn btn-danger modal-remove" data-url="{% url 'todo_remove' task=form.instance.pk %}">
+		<i class="icon-ok icon-trash"></i> Remove
+	</button>
+	{% else %}
+	<button type="submit" class="btn btn-primary modal-submit" data-url="{% url 'todo_new' %}">
+		<i class="icon-ok icon-white"></i> Create
+	</button>
+	{% endif %}
+</div>

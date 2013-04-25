@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}My ToDoList{% endblock title %}
+
+{% block content %}
+            <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="hero-unit">
+                <h1>Manage My ToDo!</h1>
+            </div>
+
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="span12">
+                    <h2>ToDo</h2>
+                    
+                    {% if user.is_authenticated %}
+                    
+                    <table id="tasks-list" class="table table-stripped table-bordered">
+                    	<thead>
+                    		<tr>
+                    			<th>Priority</th>
+                    			<th>Title</th>
+                    			<th>Due to</th>
+                    		</tr>
+                    	</thead>
+                    	<tbody>
+                    		{% include 'list.html' %}
+                    	</tbody>
+                    </table>
+                    
+                    <p><a class="btn modal-loader" href="#" data-url="{% url 'todo_new' %}">New Task</a></p>
+                    
+                    {% else %}
+                    
+                    <h3>Please login or create an account on top menu</h3>
+                    
+                    {% endif %}
+                    
+                </div>
+            </div>
+            
+            
+            <div id="modal-todo" class="modal hide fade">
+</div>
+<script>
+	var list_url = '{% url "todo_list" %}';
+</script>
+{% endblock content %}
