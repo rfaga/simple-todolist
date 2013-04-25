@@ -122,7 +122,6 @@ INSTALLED_APPS = (
 
     'django_forms_bootstrap',
     
-    'bootstrap',
     'todo',
     'users',
     # Uncomment the next line to enable the admin:
