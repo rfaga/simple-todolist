@@ -17,7 +17,7 @@
 	<button type="submit" class="btn btn-primary modal-submit" data-url="{% url 'todo_edit' task=form.instance.pk %}">
 		<i class="icon-ok icon-white"></i> Edit
 	</button>
-	<button type="submit" class="btn btn-danger modal-remove" data-url="{% url 'todo_remove' task=form.instance.pk %}">
+	<button type="submit" class="btn btn-danger modal-remove pull-left" data-url="{% url 'todo_remove' task=form.instance.pk %}">
 		<i class="icon-ok icon-trash"></i> Remove
 	</button>
 	{% else %}
