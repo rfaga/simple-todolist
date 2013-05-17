@@ -36,7 +36,7 @@ def ajax_list(request):
 def edit(request, task=None):
     args = {}
     if task:
-        args['instance'] = get_object_or_404(Task, pk=task)
+        args['instance'] = get_object_or_404(Task, pk=task, user=request.user)
     else:
         args['user'] = request.user
     print task
@@ -54,6 +54,6 @@ def edit(request, task=None):
 @login_required
 @csrf_exempt
 def remove(request, task):
-    task = get_object_or_404(Task, pk=task)
+    task = get_object_or_404(Task, pk=task, user=request.user)
     task.delete()
     return HttpResponse('')
